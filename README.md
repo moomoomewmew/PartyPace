@@ -3,14 +3,14 @@
 ### By: Katie Vermazani
 ***
 
-##About
+## About
 This website will allow users to add group ride events to the website, search local rides, and boost fun rides.
 ***
 
-##Homepage:
+## Homepage:
 The home page will display the most popular rides in the nation. It will also have a search bar so you can search for rides locally.
 
-##Search page:
+## Search page:
 The search page will have results from their search on the home page as well as filters. The filters will be:
 -location
 -pace
@@ -18,5 +18,5 @@ The search page will have results from their search on the home page as well as 
 
 Perhaps there will be a quiz asking all of the filter questions to find the best rides for you.
 
-##Ride Leader Page:
+## Ride Leader Page:
 can choose to make ride public or private
