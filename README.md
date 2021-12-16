@@ -19,4 +19,4 @@ The search page will have results from their search on the home page as well as 
 Perhaps there will be a quiz asking all of the filter questions to find the best rides for you.
 
 ## Ride Leader Page:
-can choose to make ride public or private
+After creating an account, the user will have the option to add a ride which other users can RSVP to. This means that bike shop owners, festival directors, co-op cyclists and ride leaders will be able to list their rides publicly.
