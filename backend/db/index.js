@@ -1,4 +1,4 @@
-///connects to database and starts server
+///connects to database
 import app from "./server.js"
 import mongodb from "mongodb"
 import dotenv from "dotenv"
@@ -19,4 +19,3 @@ process.env.USERS_URI,
 .then(async client => {
 })
 
-///////
