@@ -1,21 +1,19 @@
-///connects to database
-import app from "./server.js"
-import mongodb from "mongodb"
-import dotenv from "dotenv"
+const mongoose = require('mongoose')
+const dotenv = require("dotenv")
 dotenv.config()
-const MongoClient = mongoDB.MongoClient 
-const port = process.env.PORT || 3001
-MongoClient.connect(
-process.env.USERS_URI,
-{
-    poolSize: 100
-    wtimeout: 3000
-    useNewUrlParse: true }
-)
-.catch(err => {
-    console.error(err.stack)
-    process.exit(1)
-})
-.then(async client => {
-})
+
+let MONGODB_URI = process.env.USERS_URI
+
+mongoose
+    .connect(MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true })
+    .then(() => {
+        console.log('Successfully connected to MongoDB.')
+    })
+    .catch(e => {
+        console.error('Connection error', e.message)
+    })
+
+const db = mongoose.connection
+
+module.exports = db
 

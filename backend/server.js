@@ -1,6 +1,9 @@
-import express from "express"
-import cors from "cors"
-import users from "./api/users.route.js"
+const express = require('express');
+const cors = require("cors")
+const users = require("./routes/index.js")
+const db = require('./db');
+db.on('error', console.error.bind(console, 'MongoDB connection error:'))
+
 
 const app = express()
 
