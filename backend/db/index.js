@@ -5,7 +5,7 @@ dotenv.config()
 let MONGODB_URI = process.env.USERS_URI
 
 mongoose
-    .connect(MONGODB_URI, { useUnifiedTopology: true, useNewUrlParser: true })
+    .connect(MONGODB_URI)
     .then(() => {
         console.log('Successfully connected to MongoDB.')
     })
