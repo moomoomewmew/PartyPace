@@ -1,4 +1,4 @@
-import './App.css';
+import './styles/App.css';
 import Login from './login';
 
 function App() {
@@ -6,7 +6,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>This is the project</h1>
-        <Login />
+    
     
       </header>
     </div>
