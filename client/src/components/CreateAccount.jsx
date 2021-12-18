@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import '../styles/Validator.css'
-import CreateAccount from './CreateAccount'
 import { Link } from 'react-router-dom'
 
-const Login = () => {
+const CreateAccount = () => {
 
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
@@ -46,7 +45,7 @@ const Login = () => {
 
     return (
         <div className="form">
-            <h1>Login</h1>
+            <h1>Sign Up</h1>
             <form>
                 <input
                     type="text"
@@ -65,12 +64,19 @@ const Login = () => {
                 />
                 <label htmlFor="password">Password</label>
 
+                <input
+                    type="password"
+                    placeholder="Confirm password"
+                    id="passwordConfirm"
+                    onChange={savePasswordConfirm}
+                />
+                <label htmlFor="passwordConfirm">Confirm password</label>
+
                 <button type="submit" onClick={formSubmission}>Sign Up</button>
                 <p>{alert}</p>
-                <Link to="/newaccount">Create Account</Link>
             </form>
         </div>
     )
 }
 
-export default Login
+export default CreateAccount
