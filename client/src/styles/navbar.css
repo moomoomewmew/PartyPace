@@ -1,3 +1,37 @@
-.nav-bar {
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Sigmar+One&family=Zen+Antique+Soft&display=swap');
+
+a {
+    color: #024546;
+    text-decoration: none;
+}
+
+a:hover {
+    color:#00A0C6; 
+    text-decoration:none; 
+    cursor:pointer;  
+}
+
+body {
+    background-color: #2E796D;
     text-align: center;
+}
+
+nav {
+    list-style-type: none;
+    background-color: #FAF5E4;
+    float: left;
+    padding: 8px;
+    position: fixed;
+    width: 100%;
+    size: 500px;
+    font-family: 'Oswald', sans-serif;
+    display: flex;
+    justify-content: space-between;
+}
+
+h1 {
+    color: #F8B407;
+    font-size: 4em;
+    text-align: center;
+    margin:auto;
 }

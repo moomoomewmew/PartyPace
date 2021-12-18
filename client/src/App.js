@@ -10,10 +10,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>This is the project</h1>
+        <h1>PartyPace</h1>
         <Navbar />
-
-
+        
       </header>
       <Routes>
         <Route path='/' element={<LandingPage />} />
