@@ -34,6 +34,20 @@ const getRideById = async (req, res) => {
     }
 }
 
+const getRideByLocation = async (req, res) => {
+    try {
+        const { location } = req.params;
+        const ride = await Ride.find(location)
+        if (ride) {
+            return res.status(200).json({ ride });
+        }
+        return res.status(404).send('Ride with the specified ID does not exists');
+    } catch (error) {
+        return res.status(500).send(error.message);
+    }
+}
+
+
 const updateRide = async (req, res) => {
     try {
         const { id } = req.params;
@@ -70,5 +84,6 @@ module.exports = {
     getAllRides,
     getRideById,
     updateRide,
-    deleteRide
+    deleteRide,
+    getRideByLocation
 }

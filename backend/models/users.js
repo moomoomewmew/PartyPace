@@ -5,8 +5,8 @@ const UserSchema = new Schema(
     {
         username: { type: String, required: true },
         password: { type: String, required: true },
-        location: { type: String, required: true },
         pace: { type: String, required: true },
+        location: { type: String, required: true },
         leader: { type: Boolean, required: true }
     },
     { timestamp: true },

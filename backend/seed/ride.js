@@ -1,25 +1,68 @@
 const db = require('../db')
-const rides = require('../models/rides.js')
+const ride = require('../models/rides.js')
 
 // Connect to the database
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
-const userMain = async () => {
-    const userData = [
+const ridesMain = async () => {
+    const ridesData = [
         {
-            location: 'Meet at Augustine, ride for 13 miles, and land at the GA Baargarden',
+            title: 'M+M',
+            location: 'LA',
             description: 'No-drop social ride, party pace. Weear your helmets! This is not a race!',
             pace: 'party-pace',
             who: 'This ride is for anyone with a bike who isnt trying to race.',
             when: 'Every Monday!'
         },
+        {
+            title: 'Dope Peddlers',
+            location: 'ATL',
+            description: 'No-drop social ride, party pace. Weear your helmets! This is not a race!',
+            pace: 'party-pace',
+            who: 'This ride is for anyone with a bike who isnt trying to race.',
+            when: 'Every Monday!'
+        },
+        {
+            title:  
+            location: 'NYC',
+            description: 'No-drop social ride, party pace. Weear your helmets! This is not a race!',
+            pace: 'party-pace',
+            who: 'This ride is for anyone with a bike who isnt trying to race.',
+            when: 'Every Monday!'
+        },
+        {
+            id: 0, 
+            location: 'LA',
+            description: 'No-drop social ride, party pace. Weear your helmets! This is not a race!',
+            pace: 'party-pace',
+            who: 'This ride is for anyone with a bike who isnt trying to race.',
+            when: 'Every Monday!'
+        },
+        {
+            title: 'The Race Ride'
+            location: 'ATL',
+            description: 'No-drop social ride, party pace. Weear your helmets! This is not a race!',
+            pace: 'Race-pace',
+            who: 'This ride is for anyone with a bike who isnt trying to race.',
+            when: 'Every Monday!'
+        },
+        {
+            title: 'The Fun Ride'
+            location: 'NYC',
+            description: 'No-drop social ride, party pace. Weear your helmets! This is not a race!',
+            pace: 'party-pace',
+            who: 'This ride is for anyone with a bike who isnt trying to race.',
+            when: 'Every Monday!'
+        }
+
     ]
 
-    await user.insertMany(userData)
-    console.log("Created some plants!")
+    await ride.insertMany(ridesData)
+    console.log("Created some rides!")
 }
+
 const run = async () => {
-    await userMain()
+    await ridesMain()
     db.close()
 }
 
