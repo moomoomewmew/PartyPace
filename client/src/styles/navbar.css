@@ -23,7 +23,6 @@ nav {
     padding: 8px;
     position: fixed;
     width: 100%;
-    size: 500px;
     font-family: 'Oswald', sans-serif;
     display: flex;
     justify-content: space-between;

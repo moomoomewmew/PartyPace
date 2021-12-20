@@ -19,40 +19,40 @@ const ridesMain = async () => {
             location: 'ATL',
             description: 'No-drop social ride, party pace. Weear your helmets! This is not a race!',
             pace: 'party-pace',
-            who: 'This ride is for anyone with a bike who isnt trying to race.',
-            when: 'Every Monday!'
+            who: 'Atlanta community, everyone is welcome.',
+            when: 'Every Saturday!'
         },
         {
-            title:  
+            title: 'Coffee Sunday',
             location: 'NYC',
-            description: 'No-drop social ride, party pace. Weear your helmets! This is not a race!',
+            description: 'Grabbing coffee on sun mornings!',
             pace: 'party-pace',
-            who: 'This ride is for anyone with a bike who isnt trying to race.',
-            when: 'Every Monday!'
+            who: 'Coffee Lovers and morning people',
+            when: 'Every Sunday!'
         },
         {
-            id: 0, 
+            title: 'Fitness Friday', 
             location: 'LA',
-            description: 'No-drop social ride, party pace. Weear your helmets! This is not a race!',
-            pace: 'party-pace',
-            who: 'This ride is for anyone with a bike who isnt trying to race.',
-            when: 'Every Monday!'
+            description: 'We are taking a medium pace. There is no sweep. Come if you can keep up!',
+            pace: 'medium-pace',
+            who: 'This is for anyone that wants to get fit with this friday group ride.',
+            when: 'Every Friday!'
         },
         {
-            title: 'The Race Ride'
+            title: 'The Race Ride',
             location: 'ATL',
             description: 'No-drop social ride, party pace. Weear your helmets! This is not a race!',
             pace: 'Race-pace',
-            who: 'This ride is for anyone with a bike who isnt trying to race.',
-            when: 'Every Monday!'
+            who: 'This ride is for fast people.',
+            when: 'Every Saturday!'
         },
         {
-            title: 'The Fun Ride'
+            title: 'The Fun Ride',
             location: 'NYC',
-            description: 'No-drop social ride, party pace. Weear your helmets! This is not a race!',
+            description: 'No-drop social ride, party pace. Weear your helmets!',
             pace: 'party-pace',
-            who: 'This ride is for anyone with a bike who isnt trying to race.',
-            when: 'Every Monday!'
+            who: 'This ride is for anyone who likes to have fun.',
+            when: 'Every Saturday!'
         }
 
     ]

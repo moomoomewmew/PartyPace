@@ -15,7 +15,7 @@ const createRide = async (req, res) => {
 const getAllRides = async (req, res) => {
     try {
         const rides = await Ride.find()
-        return res.status(200).json({ rides })
+        return res.status(200).json({ rides }) ///and if (if thing is present, await ride.find and pass in object link from chat to mongoose doc)
     } catch (error) {
         return res.status(500).send(error.message);
     }

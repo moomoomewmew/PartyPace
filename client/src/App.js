@@ -1,3 +1,4 @@
+import React,{useState} from 'react';
 import './styles/App.css'
 import { Routes, Route } from 'react-router-dom'
 import Login from './login'
@@ -12,13 +13,13 @@ function App() {
       <header className="App-header">
         <h1>PartyPace</h1>
         <Navbar />
-        
+
       </header>
       <Routes>
         <Route path='/' element={<LandingPage />} />
-        <Route path='/login' element={<Login />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/newaccount' element={<CreateAccount />} />
+        <Route path='/login' element={<Login />} />
       </Routes>
     </div>
   )
