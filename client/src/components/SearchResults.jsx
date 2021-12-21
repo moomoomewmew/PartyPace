@@ -8,6 +8,17 @@ const SearchResults = () => {
     const [allData, setAllData] = useState([]);
     const [filteredData, setFilteredData] = useState(allData);
     const [rideList, setRideList] = useState([])
+    const [location, setLocation] = useState('')
+    const [pace, setPace] = useState("")
+
+    const saveLocation = (e) => {
+        setLocation(e.target.value)
+    }
+
+    const savePace = (e) => {
+        setPace(e.target.value)
+    }
+
 
     const handleSearch = (event) => {
     }
@@ -40,6 +51,32 @@ const SearchResults = () => {
 
     return (
         <div>
+            <div>
+                <div className="dropdowns">
+                    <h5 htmlFor="city">City:</h5>
+                    <select
+                        value={location}
+                        name="location"
+                        id="location"
+                        onChange={saveLocation}>
+                        <option value="NYC">NYC</option>
+                        <option value="ATL">ATL</option>
+                        <option value="LA">LA</option>
+                    </select>
+
+                    <h5 htmlFor="pace">Pace:</h5>
+                    <select
+                        value={pace}
+                        name="pace"
+                        id="pace"
+                        placeholder="pace"
+                        onChange={savePace}>
+                        <option value="party">party pace</option>
+                        <option value="medium">medium pace</option>
+                        <option value="race">race pace</option>
+                    </select>
+                </div>
+            </div>
             <h1>Group rides you can join:</h1>
             <div>{rideList.map(ride => (
                 <li key={ride._id}>

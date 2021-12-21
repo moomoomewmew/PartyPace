@@ -1,14 +1,18 @@
 import React from "react";
+import CreateAccount from "./components/CreateAccount.jsx";
 import Login from "./components/Login.jsx";
 
 
-const LoginPage = () => {
+const LoginPage = (props) => {
 
-    return (
-        <div>
-            <Login />
-        </div>
-    )
+    const isLoggedIn = props.isLoggedIn
+    const toggleLogin = props.toggleLogin
+
+        return (
+            <div>
+                <Login />
+            </div>
+        )
 }
 
 export default LoginPage;

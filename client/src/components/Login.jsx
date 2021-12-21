@@ -1,15 +1,21 @@
 import React, { useState } from 'react'
 import '../styles/Validator.css'
-import CreateAccount from './CreateAccount'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
-const Login = () => {
+const Login = (props) => {
+    
+    const navigate = useNavigate()
+
+    const isLoggedIn = props.isLoggedIn
+    const toggleLogin = props.toggleLogin
+
 
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
     const [passwordConfirm, setPasswordConfirm] = useState('')
-    const [valid, setValid] = useState(null)
     const [alert, setAlert] = useState("")
+
+    const handleLoginClick = () => toggleLogin(true)
 
     const saveUserName = (e) => {
         setUserName(e.target.value)
@@ -24,7 +30,6 @@ const Login = () => {
     }
 
     const formSubmission = (e) => {
-        setValid(null)
         console.log(userName)
         console.log(password)
         console.log(passwordConfirm)
@@ -38,6 +43,8 @@ const Login = () => {
         } else if (password !== passwordConfirm) {
             setAlert("Your passwords do not match")
         } else if (userName && password === passwordConfirm && password.length > 7) {
+            navigate('/dashboard')
+            handleLoginClick()
             setAlert("Youve sucessfully logged in")
         } else {
             console.log('we did it')
@@ -65,7 +72,7 @@ const Login = () => {
                 />
                 <label htmlFor="password">Password</label>
 
-                <button type="submit" onClick={formSubmission}>Login</button>
+                <button type="submit" onClick={formSubmission, handleLoginClick}>Login</button>
                 <p>{alert}</p>
                 <Link to="/newaccount">Create Account</Link>
             </form>
