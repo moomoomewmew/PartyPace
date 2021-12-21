@@ -10,16 +10,15 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>This is the project</h1>
+        <h1>PartyPace</h1>
         <Navbar />
-
 
       </header>
       <Routes>
         <Route path='/' element={<LandingPage />} />
-        <Route path='/login' element={<Login />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/newaccount' element={<CreateAccount />} />
+        <Route path='/login' element={<Login />} />
       </Routes>
     </div>
   )

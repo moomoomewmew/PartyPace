@@ -65,7 +65,7 @@ const Login = () => {
                 />
                 <label htmlFor="password">Password</label>
 
-                <button type="submit" onClick={formSubmission}>Sign Up</button>
+                <button type="submit" onClick={formSubmission}>Login</button>
                 <p>{alert}</p>
                 <Link to="/newaccount">Create Account</Link>
             </form>
