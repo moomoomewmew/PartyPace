@@ -22,10 +22,12 @@ nav {
     float: left;
     padding: 8px;
     position: fixed;
-    width: 100%;
     font-family: 'Oswald', sans-serif;
     display: flex;
     justify-content: space-between;
+    overflow: hidden;
+    top: 0; 
+    width: 100%;
 }
 
 h1 {
@@ -33,4 +35,17 @@ h1 {
     font-size: 4em;
     text-align: center;
     margin:auto;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.main {
+    margin-top: 30px; /* Add a top margin to avoid content overlay */
 }

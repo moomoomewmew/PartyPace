@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import '../styles/searchresults.css'
 
 
 const SearchResults = () => {
@@ -31,7 +32,7 @@ const SearchResults = () => {
         setRideList(res.data.rides)
 
     }
-    
+
     useEffect(() => {
         getRide()
     }, [])
@@ -40,7 +41,17 @@ const SearchResults = () => {
     return (
         <div>
             <h1>Group rides you can join:</h1>
-            <div>{rideList.map(ride => (<li key={ride._id}>{ride.description}</li>))}</div>
+            <div>{rideList.map(ride => (
+                <li key={ride._id}>
+                    <h2>{ride.title}</h2>
+                    <h4>{ride.description}</h4>
+                    <h4>{ride.location}</h4>
+                    <h4>{ride.pace}</h4>
+                    <h4>{ride.who}</h4>
+                    <h4>{ride.when}</h4>
+                </li>
+            ))}
+            </div>
 
 
 
