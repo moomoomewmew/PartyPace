@@ -61,7 +61,9 @@ const SearchResults = () => {
             '/api/v1/rides'
         )
         setRideList(res.data.rides)
-
+        setLocation('-')
+        setPace('-')
+        setFilters({})
     }
 
     useEffect(() => {

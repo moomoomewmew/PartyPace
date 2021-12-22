@@ -15,14 +15,12 @@ const createRide = async (req, res) => {
 const getAllRides = async (req, res) => {
     const location = req.query.location
     const pace = req.query.pace
-    let query
+    let query = {}
+    if (location) query.location = location
+    if (pace) query.pace = pace
     console.log(req.query)
-    if (location && !pace) {
-        query = Ride.find({ location })
-    } else if (!location && pace) {
-        query = Ride.find({ pace })
-    } else if (location && pace) {
-        query = Ride.find({ location, pace })
+    if (Object.keys(query).length !== 0) {
+        query = Ride.find(query)
     } else {
         query = Ride.find()
     }
