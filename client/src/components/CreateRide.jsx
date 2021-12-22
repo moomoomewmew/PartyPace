@@ -59,15 +59,15 @@ const CreateRide = () => {
             })
     }
 
-    if (title === "") {
-        setAlert('Please enter a title for your ride')
-    } else if (description.length < 20) {
-        setAlert("Please enter a longer desciprion")
-        console.log(description.length)
-    } else {
-        console.log('this ride has been submitted')
-        handleSubmit()
-    }
+    // if (title === "") {
+    //     setAlert('Please enter a title for your ride')
+    // } else if (description.length < 20) {
+    //     setAlert("Please enter a longer desciprion")
+    //     console.log(description.length)
+    // } else {
+    //     console.log('this ride has been submitted')
+    //     handleSubmit()
+    // }
 
 
     return (
