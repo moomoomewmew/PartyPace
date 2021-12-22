@@ -7,9 +7,9 @@ import axios from 'axios'
 const CreateRide = () => {
 
     const [title, setTitle] = useState('')
-    const [location, setLocation] = useState('')
+    const [location, setLocation] = useState('NYC')
     const [description, setDescription] = useState('')
-    const [pace, setPace] = useState("")
+    const [pace, setPace] = useState("party pace")
     const [alert, setAlert] = useState("")
     const [who, setWho] = useState("")
     const [when, setWhen] = useState("")
@@ -66,12 +66,13 @@ const CreateRide = () => {
     //     console.log(description.length)
     // } else {
     //     console.log('this ride has been submitted')
+    //     handleSubmit()
     // }
 
 
     return (
         <div className="form">
-            <h1>Add Your Ride</h1>
+            <h1>Add A Ride</h1>
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
