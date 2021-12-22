@@ -9,9 +9,9 @@ const CreateAccount = (props) => {
     const navigate = useNavigate()
 
     const [username, setUserName] = useState('')
-    const [pace, setPace] = useState('')
-    const [location, setLocation] = useState('')
-    const [leader, setLeader] = useState('')
+    const [pace, setPace] = useState('party-pace')
+    const [location, setLocation] = useState('NYC')
+    const [leader, setLeader] = useState(true)
     const [password, setPassword] = useState('')
     const [passwordConfirm, setPasswordConfirm] = useState('')
     const [alert, setAlert] = useState("")
@@ -57,17 +57,16 @@ const CreateAccount = (props) => {
         } else if (username && password === passwordConfirm && password.length > 7) {
             navigate('/dashboard')
             setAlert("Youve sucessfully logged in")
-            const res = await axios.post('/api/v1/users',
-                {
-                    username,
-                    password,
-                    pace,
-                    location,
-                    leader
-                }
-            ).then(() => {
+            const request = {
+                username,
+                password,
+                pace,
+                location,
+                leader
+            };
+            console.log('creating user with request', request)
+            const res = await axios.post('/api/v1/users', request).then(() => {
                 handleLoginClick()
-                console.log(res)
             })
         } else {
             console.log('we did it')
