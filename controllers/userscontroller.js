@@ -22,10 +22,10 @@ const getAllUsers = async (req, res) => {
     }
 }
 
-const getUserById = async (req, res) => {
+const getUserByUsername = async (req, res) => {
     try {
-        const { id } = req.params;
-        const user = await User.findById(id)
+        const { username } = req.params;
+        const user = await User.find({ username })
         if (user) {
             return res.status(200).json({ user });
         }
@@ -69,7 +69,7 @@ const deleteUser = async (req, res) => {
 module.exports = {
     createUser,
     getAllUsers,
-    getUserById,
+    getUserByUsername,
     updateUser,
     deleteUser
 }

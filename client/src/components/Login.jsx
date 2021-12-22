@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import '../styles/Validator.css'
 import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 const Login = (props) => {
     
     const navigate = useNavigate()
 
+    const setUser = props.setUser
     const isLoggedIn = props.isLoggedIn
     const toggleLogin = props.toggleLogin
     console.log(props)
@@ -21,7 +23,7 @@ const Login = (props) => {
         setPassword(e.target.value)
     }
 
-    const formSubmission = (e) => {
+    const formSubmission = async (e) => {
         console.log(userName)
         console.log(password)
         e.preventDefault()
@@ -31,9 +33,19 @@ const Login = (props) => {
         } else if (password === "") {
             alert('Please enter a password')
         } else {
-            toggleLogin(true)
-            alert("Youve sucessfully logged in")
-            navigate('/dashboard')
+            try {
+                const resp = await axios.get(`/api/v1/users/${userName}`)
+                toggleLogin(userName)
+                console.log(resp.data)
+                setUser(resp.data.user[0])
+                console.log('set user', resp.data.user[0])
+                alert("Youve sucessfully logged in")
+                navigate('/dashboard')
+            } catch (err) {
+                console.log(err)
+                alert('login failed')
+            }
+            
         }
     }
 

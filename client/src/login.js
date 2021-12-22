@@ -5,12 +5,13 @@ import Login from "./components/Login.jsx";
 
 const LoginPage = (props) => {
 
+    const setUser = props.setUser
     const isLoggedIn = props.isLoggedIn
     const toggleLogin = props.toggleLogin
 
         return (
             <div>
-                <Login toggleLogin={toggleLogin} />
+                <Login toggleLogin={toggleLogin} setUser={setUser} />
             </div>
         )
 }

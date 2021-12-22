@@ -7,6 +7,8 @@ import Dashboard from '../dashboard'
 const CreateAccount = (props) => {
 
     const navigate = useNavigate()
+    const user = props.user
+    const setUser = props.setUser
 
     const [username, setUserName] = useState('')
     const [pace, setPace] = useState('party-pace')
@@ -18,7 +20,18 @@ const CreateAccount = (props) => {
     const isLoggedIn = props.isLoggedIn
     const toggleLogin = props.toggleLogin
 
-    const handleLoginClick = () => toggleLogin(true)
+    const handleLoginClick = async () => {
+
+        try {
+            const resp = await axios.get(`/api/v1/users/${username}`)
+            toggleLogin(username)
+            console.log(resp.data)
+            setUser(resp.data.user[0])
+        } catch (err) {
+            console.log(err)
+            alert('login failed')
+        }
+    }
 
     const saveUserName = (e) => {
         setUserName(e.target.value)
@@ -156,7 +169,7 @@ const CreateAccount = (props) => {
                         <button type="submit" >Sign Up</button>
                     </form>
                 </div >) :
-                <Dashboard />
+                <Dashboard user={user} />
             }
         </div>
     )
