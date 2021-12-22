@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import '../styles/searchresults.css'
+import { useNavigate } from 'react-router-dom'
 
 
-const SearchResults = () => {
 
-    const [allData, setAllData] = useState([]);
-    const [filteredData, setFilteredData] = useState(allData);
+const SearchResults = (props) => {
+
+    console.log(props)
+    const navigate = useNavigate()
+    const setRide = props.setRide
+
+    const [allData, setAllData] = useState([])
+    const [filteredData, setFilteredData] = useState(allData)
     const [rideList, setRideList] = useState([])
     const [location, setLocation] = useState('')
     const [pace, setPace] = useState("")
@@ -49,12 +55,13 @@ const SearchResults = () => {
         getRide()
     }
 
-    // const editRide = async (e) => {
-    //     e.preventDefault()
-    //     const res = await axios.put(
-    //         `/api/v1/rides/${e.target.id}`)
-    //     getRide()
-    // }
+    const editRide = async (e) => {
+        e.preventDefault()
+        const rideId = e.target.id;
+        const res = await axios.get(`/api/v1/rides/${rideId}`)
+        setRide(res.data.ride)
+        navigate('/edit')
+    }
 
     const getRide = async () => {
         const res = await axios.get(
@@ -111,7 +118,7 @@ const SearchResults = () => {
                     <h4>{ride.who}</h4>
                     <h4>{ride.when}</h4>
                     <button id={ride._id} onClick={(e) => deleteRide(e)}>Delete</button>
-                    {/* <button onClick={this.editRide}>Edit</button> */}
+                    <button id={ride._id} onClick={(e) => editRide(e)}>Edit</button>
                 </li>
             ))}
             </div>

@@ -60,20 +60,22 @@ const getRideByLocation = async (req, res) => {
 
 
 const updateRide = async (req, res) => {
-    try {
-        const { id } = req.params;
-        await Ride.findByIdAndUpdate(id, req.body, { new: true }, (err, ride) => {
-            if (err) {
-                res.status(500).send(err);
-            }
-            if (!ride) {
-                res.status(500).send('Ride not found!');
-            }
-            return res.status(200).json(ride);
-        })
-    } catch (error) {
-        return res.status(500).send(error.message);
-    }
+    console.log('updating ride:', req.params.id)
+    const { id } = req.params;
+    console.log('executing query')
+    Ride.findByIdAndUpdate(id, req.body, (err, ride) => {
+        console.log('updated')
+        if (err) {
+            console.log('returning from error')
+            return res.status(500).send(err);
+        }
+        if (!ride) {
+            console.log('returning from not found')
+            return res.status(500).send('Ride not found!');
+        }
+        console.log('returning json')
+        return res.status(200).json(ride);
+    })
 }
 
 const deleteRide = async (req, res) => {

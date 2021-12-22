@@ -3,13 +3,10 @@ import CreateAccount from './components/CreateAccount'
 import CreateRide from './components/CreateRide'
 import SearchResults from './components/SearchResults'
 
-export default function Dashboard(props) {
-    console.log('hello dashboard')
-    console.log(props)
+export default function EditPage(props) {
     return (
         <div>
-            <CreateRide />
-            <SearchResults setRideId={props.setRideId}/>
+            <EditPage ride={props.ride} />
         </div>
     )
 }
