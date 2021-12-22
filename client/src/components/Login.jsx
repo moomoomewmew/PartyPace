@@ -8,14 +8,10 @@ const Login = (props) => {
 
     const isLoggedIn = props.isLoggedIn
     const toggleLogin = props.toggleLogin
-
+    console.log(props)
 
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
-    const [passwordConfirm, setPasswordConfirm] = useState('')
-    const [alert, setAlert] = useState("")
-
-    const handleLoginClick = () => toggleLogin(true)
 
     const saveUserName = (e) => {
         setUserName(e.target.value)
@@ -25,29 +21,19 @@ const Login = (props) => {
         setPassword(e.target.value)
     }
 
-    const savePasswordConfirm = (e) => {
-        setPasswordConfirm(e.target.value)
-    }
-
     const formSubmission = (e) => {
         console.log(userName)
         console.log(password)
-        console.log(passwordConfirm)
         e.preventDefault()
 
         if (userName === "") {
-            setAlert('Please enter a user name')
-        } else if (password.length < 7) {
-            setAlert("Your password must be at least 7 characters long")
-            console.log(password.length)
-        } else if (password !== passwordConfirm) {
-            setAlert("Your passwords do not match")
-        } else if (userName && password === passwordConfirm && password.length > 7) {
-            navigate('/dashboard')
-            handleLoginClick()
-            setAlert("Youve sucessfully logged in")
+            alert('Please enter a user name')
+        } else if (password === "") {
+            alert('Please enter a password')
         } else {
-            console.log('we did it')
+            toggleLogin(true)
+            alert("Youve sucessfully logged in")
+            navigate('/dashboard')
         }
     }
 
@@ -72,8 +58,7 @@ const Login = (props) => {
                 />
                 <label htmlFor="password">Password</label>
 
-                <button type="submit" onClick={formSubmission, handleLoginClick}>Login</button>
-                <p>{alert}</p>
+                <button type="submit" onClick={formSubmission}>Login</button>
                 <Link to="/newaccount">Create Account</Link>
             </form>
         </div>

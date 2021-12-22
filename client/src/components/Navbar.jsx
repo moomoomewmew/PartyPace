@@ -6,6 +6,7 @@ const Navbar = (props) => {
     const isLoggedIn = props.isLoggedIn
     const toggleLogin = props.toggleLogin
     if (isLoggedIn) {
+        console.log('logged in')
         return (
             <nav className="nav-bar">
                 <Link to="/">Home</Link>
@@ -14,6 +15,7 @@ const Navbar = (props) => {
             </nav>
         )
     } else {
+        console.log('not logged in')
         return (
             <nav>
                 <Link to="/">Home</Link>

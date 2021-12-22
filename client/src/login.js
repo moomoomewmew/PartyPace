@@ -10,7 +10,7 @@ const LoginPage = (props) => {
 
         return (
             <div>
-                <Login />
+                <Login toggleLogin={toggleLogin} />
             </div>
         )
 }
