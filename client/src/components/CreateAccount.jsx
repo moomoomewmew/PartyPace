@@ -14,7 +14,6 @@ const CreateAccount = (props) => {
     const [leader, setLeader] = useState(true)
     const [password, setPassword] = useState('')
     const [passwordConfirm, setPasswordConfirm] = useState('')
-    const [alert, setAlert] = useState("")
 
     const isLoggedIn = props.isLoggedIn
     const toggleLogin = props.toggleLogin
@@ -48,15 +47,15 @@ const CreateAccount = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         if (username === "") {
-            setAlert('Please enter a user name')
+            alert('Please enter a user name')
         } else if (password.length < 7) {
-            setAlert("Your password must be at least 7 characters long")
+            alert("Your password must be at least 7 characters long")
             console.log(password.length)
         } else if (password !== passwordConfirm) {
-            setAlert("Your passwords do not match")
+            alert("Your passwords do not match")
         } else if (username && password === passwordConfirm && password.length > 7) {
             navigate('/dashboard')
-            setAlert("Youve sucessfully logged in")
+            alert("Youve sucessfully logged in")
             const request = {
                 username,
                 password,
@@ -155,7 +154,6 @@ const CreateAccount = (props) => {
                         <label htmlFor="passwordConfirm">Confirm password</label>
 
                         <button type="submit" >Sign Up</button>
-                        <p>{alert}</p>
                     </form>
                 </div >) :
                 <Dashboard />

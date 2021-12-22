@@ -10,7 +10,6 @@ const CreateRide = () => {
     const [location, setLocation] = useState('NYC')
     const [description, setDescription] = useState('')
     const [pace, setPace] = useState("party pace")
-    const [alert, setAlert] = useState("")
     const [who, setWho] = useState("")
 
     const today = new Date()
@@ -142,7 +141,6 @@ const CreateRide = () => {
                 </input>
 
                 <button type="submit" >Create Ride</button>
-                <p>{alert}</p>
             </form>
         </div>
     )
