@@ -1,7 +1,8 @@
 const mongoose = require('mongoose')
+const dotenv = require('dotenv')
 
 mongoose
-.connect('mongodb://127.0.0.1:27017/partyPaceDatabase')    
+.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/partyPaceDatabase')    
 .then(() => {
         console.log('Successfully connected to MongoDB.')
     })

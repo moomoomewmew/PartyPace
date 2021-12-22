@@ -24,14 +24,14 @@ const SearchResults = () => {
     }
 
     const deleteRide = async (e) => {
-        const res = await axios.delete(`http://localhost:3001/api/v1/rides/${e.target.id}`)
+        const res = await axios.delete(`/api/v1/rides/${e.target.id}`)
         getRide()
     }
 
 
     const getRide = async () => {
         const res = await axios.get(
-            'http://localhost:3001/api/v1/rides'
+            '/api/v1/rides'
         )
         setRideList(res.data.rides)
 
