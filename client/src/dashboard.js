@@ -9,7 +9,7 @@ export default function Dashboard(props) {
     return (
         <div>
             <CreateRide />
-            <SearchResults setRideId={props.setRideId}/>
+            <SearchResults setRide={props.setRide}/>
         </div>
     )
 }
