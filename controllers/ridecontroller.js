@@ -13,8 +13,21 @@ const createRide = async (req, res) => {
 }
 
 const getAllRides = async (req, res) => {
+    const location = req.query.location
+    const pace = req.query.pace
+    let query
+    console.log(req.query)
+    if (location && !pace) {
+        query = Ride.find({ location })
+    } else if (!location && pace) {
+        query = Ride.find({ pace })
+    } else if (location && pace) {
+        query = Ride.find({ location, pace })
+    } else {
+        query = Ride.find()
+    }
     try {
-        const rides = await Ride.find()
+        const rides = await query
         return res.status(200).json({ rides }) ///and if (if thing is present, await ride.find and pass in object link from chat to mongoose doc)
     } catch (error) {
         return res.status(500).send(error.message);

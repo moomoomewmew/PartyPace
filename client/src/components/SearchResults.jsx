@@ -10,24 +10,51 @@ const SearchResults = () => {
     const [rideList, setRideList] = useState([])
     const [location, setLocation] = useState('')
     const [pace, setPace] = useState("")
+    const [filters, setFilters] = useState({})
 
-    const saveLocation = (e) => {
+    const saveLocation = async (e) => {
         setLocation(e.target.value)
+        updateFilters({ location: e.target.value })
     }
 
     const savePace = (e) => {
         setPace(e.target.value)
+        updateFilters({ pace: e.target.value })
     }
 
+    const updateFilters = async (newFilters) => {
+        console.log(newFilters)
+        let mergedFilters = { ...filters, ...newFilters }
+        
+        for (let [filter, value] of Object.entries(mergedFilters)) {
+            if (value === '-') {
+                delete mergedFilters[filter]
+            }
+        }
+
+        console.log(mergedFilters)
+        const res = await axios.get(`/api/v1/rides`, {
+            params: mergedFilters
+        })
+        setRideList(res.data.rides)
+        setFilters(mergedFilters)
+    }
 
     const handleSearch = (event) => {
     }
 
     const deleteRide = async (e) => {
-        const res = await axios.delete(`/api/v1/rides/${e.target.id}`)
+        const res = await axios.delete(
+            `/api/v1/rides/${e.target.id}`)
         getRide()
     }
 
+    // const editRide = async (e) => {
+    //     e.preventDefault()
+    //     const res = await axios.put(
+    //         `/api/v1/rides/${e.target.id}`)
+    //     getRide()
+    // }
 
     const getRide = async () => {
         const res = await axios.get(
@@ -52,6 +79,7 @@ const SearchResults = () => {
                         name="location"
                         id="location"
                         onChange={saveLocation}>
+                        <option value="-">-</option>
                         <option value="NYC">NYC</option>
                         <option value="ATL">ATL</option>
                         <option value="LA">LA</option>
@@ -64,9 +92,10 @@ const SearchResults = () => {
                         id="pace"
                         placeholder="pace"
                         onChange={savePace}>
-                        <option value="party">party pace</option>
-                        <option value="medium">medium pace</option>
-                        <option value="race">race pace</option>
+                        <option value="-">-</option>
+                        <option value="party-pace">party pace</option>
+                        <option value="medium-pace">medium pace</option>
+                        <option value="race-pace">race pace</option>
                     </select>
                 </div>
             </div>
@@ -80,6 +109,7 @@ const SearchResults = () => {
                     <h4>{ride.who}</h4>
                     <h4>{ride.when}</h4>
                     <button id={ride._id} onClick={(e) => deleteRide(e)}>Delete</button>
+                    {/* <button onClick={this.editRide}>Edit</button> */}
                 </li>
             ))}
             </div>

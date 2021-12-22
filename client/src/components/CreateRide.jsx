@@ -120,9 +120,9 @@ const CreateRide = () => {
                         id="pace"
                         placeholder="pace"
                         onChange={savePace}>
-                        <option value="party">party pace</option>
-                        <option value="medium">medium pace</option>
-                        <option value="race">race pace</option>
+                        <option value="party-pace">party pace</option>
+                        <option value="medium-pace">medium pace</option>
+                        <option value="race-pace">race pace</option>
                     </select>
 
                 </div>
