@@ -2,8 +2,9 @@ const express = require('express');
 const cors = require("cors")
 const users = require("./routes/index.js")
 const rides = require("./routes/rides.js")
-const db = require('./db');
+const db = require('./db')
 const logger = require('morgan')
+const path = require('path')
 
 const PORT = process.env.PORT || 3001
 
@@ -17,7 +18,9 @@ app.use("/api/v1/rides", rides)
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
-app.use("*",  (req, res) => res.status(404).json({ error: "not found"}))
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+})
 
 app.listen(PORT, () => {
     console.log(`listening on port 3001`)
