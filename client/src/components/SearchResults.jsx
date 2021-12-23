@@ -29,7 +29,6 @@ const SearchResults = (props) => {
     }
 
     const updateFilters = async (newFilters) => {
-        console.log(newFilters)
         let mergedFilters = { ...filters, ...newFilters }
         
         for (let [filter, value] of Object.entries(mergedFilters)) {

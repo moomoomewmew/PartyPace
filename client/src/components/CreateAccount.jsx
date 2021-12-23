@@ -86,16 +86,6 @@ const CreateAccount = (props) => {
 
     }
 
-
-    // const formSubmission = (e) => {
-    //     setValid(null)
-    //     console.log(userName)
-    //     console.log(password)
-    //     console.log(passwordConfirm)
-    //     e.preventDefault()
-
-
-
     return (
         <div>
             {!isLoggedIn ?

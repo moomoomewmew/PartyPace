@@ -36,3 +36,6 @@ In this project I ustilized:
 -Axios
 
 
+## Credits
+John Jacobs
+Daniel Connelly
