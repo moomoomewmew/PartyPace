@@ -61,7 +61,7 @@ const EditPage = (props) => {
 
     return (
         <div className="form">
-            <h1>Edit A Ride</h1>
+            <h1>Update Ride</h1>
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"

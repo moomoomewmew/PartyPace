@@ -18,6 +18,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>PartyPace</h1>
+        <h3>Find group rides in your city!</h3>
         <Navbar isLoggedIn={isLoggedIn} toggleLogin={toggleLogin} setUser={setUser} />
 
       </header>
