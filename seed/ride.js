@@ -42,7 +42,7 @@ const ridesMain = async () => {
             title: 'The Race Ride',
             location: 'ATL',
             description: 'No-drop social ride, party pace. Weear your helmets! This is not a race!',
-            pace: 'Race-pace',
+            pace: 'race-pace',
             who: 'This ride is for fast people.',
             when: 'Every Saturday!'
         },
