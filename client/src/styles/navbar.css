@@ -12,22 +12,20 @@ a:hover {
 }
 
 body {
-    background-color: #EBE9E3;
     text-align: center;
 }
 
 nav {
     list-style-type: none;
-    background-color: white;
     float: left;
-    padding: 8px;
     position: fixed;
     font-family: 'Oswald', sans-serif;
-    display: flex;
+    display: flexbox;
     justify-content: space-between;
     overflow: hidden;
     top: 0; 
-    width: 97%;
+    width: 100%;
+    background-color: white;
 }
 
 .navbar a {

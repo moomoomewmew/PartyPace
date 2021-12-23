@@ -12,7 +12,7 @@ export default function Dashboard(props) {
     if (user) {
         return (
             <div>
-                <h1>hello, {user.username} in {user.location}</h1>
+                <h3>Hello, {user.username} in {user.location}!</h3>
                 <CreateRide />
                 <SearchResults setRide={props.setRide}/>
             </div>
