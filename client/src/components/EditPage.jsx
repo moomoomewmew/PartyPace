@@ -55,16 +55,6 @@ const EditPage = (props) => {
             })
     }
 
-    // if (title === "") {
-    //     setAlert('Please enter a title for your ride')
-    // } else if (description.length < 20) {
-    //     setAlert("Please enter a longer desciprion")
-    //     console.log(description.length)
-    // } else {
-    //     console.log('this ride has been submitted')
-    //     handleSubmit()
-    // }
-
     if (Object.keys(ride).length === 0) {
         return (<div>did not select a ride to edit!</div>)
     }

@@ -12,13 +12,13 @@ a:hover {
 }
 
 body {
-    background-color: #2E796D;
+    background-color: #EBE9E3;
     text-align: center;
 }
 
 nav {
     list-style-type: none;
-    background-color: #FAF5E4;
+    background-color: white;
     float: left;
     padding: 8px;
     position: fixed;
@@ -27,14 +27,7 @@ nav {
     justify-content: space-between;
     overflow: hidden;
     top: 0; 
-    width: 100%;
-}
-
-h1 {
-    color: #F8B407;
-    font-size: 4em;
-    text-align: center;
-    margin:auto;
+    width: 97%;
 }
 
 .navbar a {
@@ -47,5 +40,5 @@ h1 {
 }
 
 .main {
-    margin-top: 30px; /* Add a top margin to avoid content overlay */
+    margin-top: 30px;
 }

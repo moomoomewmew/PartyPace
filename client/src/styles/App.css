@@ -1,7 +1,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald&family=Sigmar+One&family=Zen+Antique+Soft&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald&family=Raleway:wght@900&family=Sigmar+One&family=Zen+Antique+Soft&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&display=swap');
+
+body {
+    background-color: #DDD7D2;
+    text-align: center;
+}
+
+header {
+    border-bottom: 2em solid white;
+    display: flex;
+    justify-content: space-evenly;
+}
 
 h1 {
-    color: #F8B407;
-    font-family: 'Raleway', sans-serif;
+    color: #FEEEA9;
+    -webkit-text-stroke: 2px #8C5675;    
+    font-family: 'Cabin Sketch', cursive;    font-size: 4em;
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Cabin Sketch', cursive;
+    color: #A4E1B2;
+    font-size: 3em;
+}
+
+h3 {
+    color: #42B0AE;
+}
+
+h4 {
+    color: #8C5675;
+}
+
+a {
+    color: #024546;
+    text-decoration: none;
+}
+
+a:hover {
+    color:#00A0C6; 
+    text-decoration:none; 
+    cursor:pointer;  
+}
+
+body {
+    background-color: #EBE9E3;
+    text-align: center;
+}
+
+li {
+    border: 5px white double;
+    border-radius: 50px;
+    margin: 3em;
 }

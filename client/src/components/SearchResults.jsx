@@ -82,6 +82,7 @@ const SearchResults = (props) => {
         <div>
             <div>
                 <div className="dropdowns">
+                    <h3>Where would you like to ride, and how fast?</h3>
                     <h5 htmlFor="city">City:</h5>
                     <select
                         value={location}
@@ -112,10 +113,15 @@ const SearchResults = (props) => {
             <div>{rideList.map(ride => (
                 <li key={ride._id}>
                     <h2>{ride.title}</h2>
+                    <h3>What is this ride all about?</h3>
                     <h4>{ride.description}</h4>
+                    <h3>Where are we going?</h3>
                     <h4>{ride.location}</h4>
+                    <h3>What pace will we go?:</h3>
                     <h4>{ride.pace}</h4>
+                    <h3>Who will be there?</h3>
                     <h4>{ride.who}</h4>
+                    <h3>When is this ride?</h3>
                     <h4>{ride.when}</h4>
                     <button id={ride._id} onClick={(e) => deleteRide(e)}>Delete</button>
                     <button id={ride._id} onClick={(e) => editRide(e)}>Edit</button>

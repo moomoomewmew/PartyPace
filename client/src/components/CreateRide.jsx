@@ -10,9 +10,11 @@ const CreateRide = () => {
     const [location, setLocation] = useState('NYC')
     const [description, setDescription] = useState('')
     const [pace, setPace] = useState("party pace")
-    const [alert, setAlert] = useState("")
     const [who, setWho] = useState("")
-    const [when, setWhen] = useState("")
+
+    const today = new Date()
+    const todayString = `${today.getFullYear()}-${today.getMonth()+1}-${today.getDate()}`
+    const [when, setWhen] = useState(todayString)
 
     const saveTitle = (e) => {
         setTitle(e.target.value)
@@ -132,14 +134,13 @@ const CreateRide = () => {
                     type="date"
                     id="start"
                     name="trip-start"
-                    value="2021-12-23"
+                    value={when}
                     min="2021-01-01"
                     max="2024-12-31"
                     onChange={saveWhen}>
                 </input>
 
                 <button type="submit" >Create Ride</button>
-                <p>{alert}</p>
             </form>
         </div>
     )

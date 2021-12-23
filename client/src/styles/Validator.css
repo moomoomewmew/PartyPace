@@ -5,7 +5,8 @@ input {
 }
 
 button {
-  background-color: #024546;
+  background-color: #046A6E;
+  border-radius: 50px;
   color: #ffffff;
   padding: 0.75rem 1rem;
   transition: box-shadow 0.3s ease-in, background-color 0.3s ease-in;
@@ -16,16 +17,17 @@ button + button {
 }
 
 button:focus {
-  box-shadow: 0 0 5px #024546;
+  box-shadow: 0 0 5px #42B0AE;
   outline: none;
 }
 
 button:hover {
-  background-color: #e6b40f;
+  background-color: #FEF0A9;
 }
 
 form {
   background-color: white;
+  border-radius: 50px;
   color: #222222;
   padding: 1.5rem 2rem;
   text-align: left;
@@ -85,8 +87,9 @@ input[type='password'] {
 }
 
 .form {
-  background: linear-gradient(to left, #024546, #e3dee7);
-  border: 1px solid #949494;
+  background: linear-gradient(to left, #FEEEA9, #8DE0CB);
+  border: 1px solid #0D7378;
+  border-radius: 50px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
   color: #ffffff;
   width: 100%;
