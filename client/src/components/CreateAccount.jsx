@@ -7,19 +7,31 @@ import Dashboard from '../dashboard'
 const CreateAccount = (props) => {
 
     const navigate = useNavigate()
+    const user = props.user
+    const setUser = props.setUser
 
     const [username, setUserName] = useState('')
-    const [pace, setPace] = useState('')
-    const [location, setLocation] = useState('')
-    const [leader, setLeader] = useState('')
+    const [pace, setPace] = useState('party-pace')
+    const [location, setLocation] = useState('NYC')
+    const [leader, setLeader] = useState(true)
     const [password, setPassword] = useState('')
     const [passwordConfirm, setPasswordConfirm] = useState('')
-    const [alert, setAlert] = useState("")
 
     const isLoggedIn = props.isLoggedIn
     const toggleLogin = props.toggleLogin
 
-    const handleLoginClick = () => toggleLogin(true)
+    const handleLoginClick = async () => {
+
+        try {
+            const resp = await axios.get(`/api/v1/users/${username}`)
+            toggleLogin(username)
+            console.log(resp.data)
+            setUser(resp.data.user[0])
+        } catch (err) {
+            console.log(err)
+            alert('login failed')
+        }
+    }
 
     const saveUserName = (e) => {
         setUserName(e.target.value)
@@ -48,26 +60,25 @@ const CreateAccount = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         if (username === "") {
-            setAlert('Please enter a user name')
+            alert('Please enter a user name')
         } else if (password.length < 7) {
-            setAlert("Your password must be at least 7 characters long")
+            alert("Your password must be at least 7 characters long")
             console.log(password.length)
         } else if (password !== passwordConfirm) {
-            setAlert("Your passwords do not match")
+            alert("Your passwords do not match")
         } else if (username && password === passwordConfirm && password.length > 7) {
             navigate('/dashboard')
-            setAlert("Youve sucessfully logged in")
-            const res = await axios.post('/api/v1/users',
-                {
-                    username,
-                    password,
-                    pace,
-                    location,
-                    leader
-                }
-            ).then(() => {
+            alert("Youve sucessfully logged in")
+            const request = {
+                username,
+                password,
+                pace,
+                location,
+                leader
+            };
+            console.log('creating user with request', request)
+            const res = await axios.post('/api/v1/users', request).then(() => {
                 handleLoginClick()
-                console.log(res)
             })
         } else {
             console.log('we did it')
@@ -156,10 +167,9 @@ const CreateAccount = (props) => {
                         <label htmlFor="passwordConfirm">Confirm password</label>
 
                         <button type="submit" >Sign Up</button>
-                        <p>{alert}</p>
                     </form>
                 </div >) :
-                <Dashboard />
+                <Dashboard user={user} />
             }
         </div>
     )
