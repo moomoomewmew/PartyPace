@@ -14,5 +14,4 @@ router.put('/:id', rideControllers.updateRide)
 
 router.delete('/:id', rideControllers.deleteRide)
 
-
 module.exports = router;
